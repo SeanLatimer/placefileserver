@@ -90,7 +90,7 @@ func main() {
 		w.Write(slPlacefile.Bytes())
 		slPlacefileLock.RUnlock()
 	})
-	r.Get("/gearth.kml", func(w http.ResponseWriter, r *http.Request) {
+	r.Get("/gearth_kml.xml", func(w http.ResponseWriter, r *http.Request) {
 		kmlLock.RLock()
 		w.Write(kmlFile.Bytes())
 		kmlLock.RUnlock()
