@@ -1,4 +1,4 @@
-FROM 1.12-alpine as builder
+FROM golang:1.12-alpine as builder
 
 WORKDIR /placefileserver
 COPY . .
