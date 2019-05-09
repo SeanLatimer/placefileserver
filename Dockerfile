@@ -7,5 +7,5 @@ RUN make clean && make build
 
 FROM alpine:latest
 WORKDIR /app/
-COPY --from=builder /go/src/github.com/seanlatimer/placefileserver/* .
+COPY --from=builder /placefileserver/build .
 CMD [ "./placefileserver" ]
