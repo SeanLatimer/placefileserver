@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.1">
+  <Folder>
+    {{ range .Spotters -}}
+    {{if .Unix | isReporting -}}
+    <Placemark id="{{.Marker}}">
+      <Style>
+        <Icon>
+        {{if .Unix | isStationary}}
+          <href>https://www.spotternetwork.org/icon/active_mobile.gif</href>
+        {{else}}
+          <href>https://www.spotternetwork.org/icon/green_house.gif</href>
+        {{end}}
+        </Icon>
+      </Style>
+      <name>{{.First}} {{.Last}}</name>
+      <description><![CDATA[Active<br>Position Time: {{.LastReport}} UTC{{if .Unix | isStationary}}<br>STATIONARY{{end}}<br>Name: {{.First}} {{.Last}}{{if .Phone}}<br>Phone: {{.Phone}}{{end}}{{if .Email}}<br>Email: {{.Email}}{{end}}{{if .IM}}<br>IM: {{.IM}}{{end}}{{if .Twitter}}<br>Twitter: {{.Twitter}}{{end}}{{if .Web}}<br>Web: {{.Web}}{{end}}{{if .Note}}<br>Note: {{.Note}}{{end}}<br>]]></description>
+      <Point>
+        <coordinates>{{.Lat}},{{.Lon}},0</coordinates>
+      </Point>
+    </Placemark>
+    {{ end }}
+    {{ end }}
+  </Folder>
+</kml>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0">
+  <Folder>
+    <name>{{.Title}}</name>
+    <open>1</open>
+    <description>{{.Title}}</description>
+    <NetworkLink>
+      <name>{{.Title}}</name>
+      <Url>
+        <href>{{.Url}}/gearth.xml</href>
+        <refreshMode>onInterval</refreshMode>
+        <refreshInterval>120</refreshInterval>
+      </Url>
+    </NetworkLink>
+  </Folder>
+</kml>

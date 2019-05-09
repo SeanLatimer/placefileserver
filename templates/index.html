@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Information - {{.Title}}</title>
+</head>
+
+<body>
+  <h1>{{.Title}}</h1>
+  <h2>Available Links</h2>
+  <ul>
+    <li><a href="/gr">Gibson Ridge</a></li>
+    <li><a href="/sl">StormLab</a></li>
+    <li><a href="/gearth.kml">Google Earth</a></li>
+    <li><a href="/rss">RSS</a></li>
+  </ul>
+  <br />
+  <h2>Currently tracked</h2>
+  <ul>
+    {{range.Spotters}}
+    <li>{{.First}} {{.Last}}</li>
+    {{end}}
+  </ul>
+</body>
+
+</html>

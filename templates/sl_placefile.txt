@@ -1,0 +1,18 @@
+Refresh: 1
+Title: {{.Title}}
+Filename: sl
+
+IconFile: 1, 22, 22, 11, 11, "https://www.spotternetwork.org/icon/spotternet_new.png"
+Font: Arial,8,0,1,192,192,192
+
+{{range .Spotters -}}
+{{if .Unix | isReporting -}}
+Object:
+   Lat/Lon: {{.Lat}},{{.Lon}}
+   Text: "{{.First}} {{.Last}}",5,10
+   Icon: 0,0,000,1,{{if .Unix | isStationary}}6{{else}}2{{end}}
+   Title: Position Report
+   Sample: "Name: {{.First}} {{.Last}}\nPosition Time: {{.LastReport}} UTC{{if .Unix | isStationary}}\nSTATIONARY{{end}}{{if .Phone}}\nPhone {{.Phone}}{{end}}{{if .Email}}\nEmail: {{.Email}}{{end}}{{if .IM}}\nIM: {{.IM}}{{end}}{{if .Twitter}}\nTwitter: {{.Twitter}}{{end}}{{if .Web}}\nWeb: {{.Web}}{{end}}{{if .Note}}\nNote: {{.Note}}{{end}}"
+End:
+{{end}}
+{{end}}

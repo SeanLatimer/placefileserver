@@ -13,3 +13,6 @@
 
 build
 config.yaml
+
+packrd
+main-packr.go

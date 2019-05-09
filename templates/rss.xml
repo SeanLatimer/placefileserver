@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+  xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <atom:link href="{{.Url}}/rss" rel="self" type="application/rss+xml" />
+    <title>{{.Title}}</title>
+    <description>{{.Title}}</description>
+    <link>{{.Url}}</link>
+    {{ range .Spotters -}}
+    {{if .Unix | isReporting -}}
+    <item>
+      <title>{{.First}} {{.Last}}</title>
+      <geo:lat>{{.Lat}}</geo:lat>
+      <geo:long>{{.Lon}}</geo:long>
+      <description>(Reported At) {{.LastReport}} UTC (Name) {{.First}} {{.Last}}</description>
+      <link>http://www.spotternetwork.org/google.php</link>
+      <guid>http://www.spotternetwork.org/google.php?marker={{.Marker}}</guid>
+    </item>
+    {{end}}
+    {{end}}
+  </channel>
+</rss>
